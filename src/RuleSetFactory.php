@@ -824,7 +824,7 @@ class RuleSetFactory
             throw new RuntimeException(trim($error?->message ?: ''));
         }
 
-        $ruleSet = $this->initRuleSet($fileName, $xml['name'] ?? null);
+        $ruleSet = $this->initRuleSet($fileName, isset($xml['name']) ? (string) $xml['name'] : null);
 
         foreach ($xml->children() as $node) {
             if ($node->getName() === 'php-includepath') {
